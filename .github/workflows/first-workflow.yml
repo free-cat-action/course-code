@@ -1,0 +1,17 @@
+name: First Workflow
+on: [push]
+
+jobs:
+  run-shell-commands:
+    run-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: |
+          echo "Hello world"
+          tree
+          ls -a
+          echo "---------------check step------------------"
+          node -v
+          npm -v
+      - name: final step
+        run: echo "-------------------End-------------------"
