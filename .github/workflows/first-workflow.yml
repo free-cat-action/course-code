@@ -13,6 +13,14 @@ jobs:
           echo "---------------check step------------------"
           node -v
           npm -v
+      - name: Checkout
+        run: |
+          git init
+          git remote add origin "https;//$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git fetch origin
+          git checkout main
+      - name: List Files After
+        run: ls -a
       - name: final step
         run: echo "-------------------End-------------------"
   parallel-job-macos:
@@ -26,5 +34,3 @@ jobs:
     steps:
       - name: echo a string
         run: Write-Output "Windows String"
-      - name: Error Step
-        run: java -v
